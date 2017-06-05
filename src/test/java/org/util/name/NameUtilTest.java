@@ -22,6 +22,7 @@ public class NameUtilTest {
         assertEquals(name, processedName.getCompleteName());
         assertEquals(name, processedName.getFirstName());
         assertNull(processedName.getLastName());
+        assertNull(processedName.getSalutation());
     }
 
     @Test
@@ -38,16 +39,41 @@ public class NameUtilTest {
         assertEquals(nameInput, processedName.getCompleteName());
         assertEquals(firstName, processedName.getFirstName());
         assertEquals(lastName, processedName.getLastName());
+        assertNull(processedName.getSalutation());
     }
 
     @Test
     public void testSalutationFirstAndLast() {
         //Arrange
-        
+        String nameInput = "Mr. Alex Bennett";
+        String salutation = "Mr";
+        String firstName = "Alex";
+        String lastName = "Bennett";
 
         //Act
+        Name processedName = NameUtil.getInstance().processName(nameInput);
 
         //Assess
+        assertEquals(nameInput, processedName.getCompleteName());
+        assertEquals(salutation, processedName.getSalutation());
+        assertEquals(firstName, processedName.getFirstName());
+        assertEquals(lastName, processedName.getLastName());
+    }
 
+    @Test
+    public void testSalutationAndLast() {
+        //Arrange
+        String nameInput = "Mr. Bennett";
+        String salutation = "Mr";
+        String lastName = "Bennett";
+
+        //Act
+        Name processedName = NameUtil.getInstance().processName(nameInput);
+
+        //Assess
+        assertEquals(nameInput, processedName.getCompleteName());
+        assertEquals(salutation, processedName.getSalutation());
+        assertEquals(lastName, processedName.getLastName());
+        assertNull(processedName.getFirstName());
     }
 }

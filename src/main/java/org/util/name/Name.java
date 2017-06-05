@@ -4,6 +4,7 @@ package org.util.name;
  * Created by Alex on 6/4/2017.
  */
 public class Name {
+    private String salutation;
     private String firstName;
     private String lastName;
     private String completeName;
@@ -30,5 +31,13 @@ public class Name {
 
     public void setCompleteName(String completeName) {
         this.completeName = completeName;
+    }
+
+    public String getSalutation() {
+        return salutation;
+    }
+
+    public void setSalutation(String salutation) {
+        this.salutation = salutation;
     }
 }
